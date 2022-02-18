@@ -1,9 +1,25 @@
-<%# <%= cl_image_tag("dkqqja4y1i1b4jesysjy", crop: :fill) %> %>
-<%= cl_image_tag("dkqqja4y1i1b4jesysjy_wqo2oj", crop: :fill) %>
-<h1>Lists</h1>
-<ul>
-<% @lists.each do |list| %>
-  <li><%= link_to list.name, list_path(list) %></li>
-<% end %>
-</ul>
-<%= link_to 'Create new list', new_list_path %>
+<div class="banner">
+  <div class="container">
+    <h1>Bookmark your favorite movies!</h1>
+    <p>Organize your movie collections</p>
+    <%= link_to 'Create new list', new_list_path, class: "btn btn-light" %>
+  </div>
+</div>
+<%# works for localhost:  %>
+<%# <%= cl_image_tag("dkqqja4y1i1b4jesysjy", crop: :fill) %>
+<%# works for production:  %>
+<%# <%= cl_image_tag("dkqqja4y1i1b4jesysjy_wqo2oj", crop: :fill) %>
+<div class="container">
+  <div class="row justify-content-left">
+    <h1 class="p-0">Lists</h1>
+    <% @lists.each do |list| %>
+      <div class="card border rounded bg-light" style="width: 18rem;">
+        <div class="card-body bg-light col-12 col-lg-6 d-flex align-content-between flex-wrap">
+          <!-- This div is centered and takes 6 columns -->
+          <h5><%= list.name %></h5>
+          <%= link_to 'Show', list_path(list) , class: "btn btn-dark"%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

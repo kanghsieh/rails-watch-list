@@ -1,3 +1,4 @@
+<%= cl_image_tag @list.photo.key, :width=>800, :crop=>"scale" if @list.photo.attached? %>
 <h1><%= @list.name %></h1>
 <ul>
   <% @movies.each do |movie| %>
